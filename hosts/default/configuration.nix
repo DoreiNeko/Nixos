@@ -23,6 +23,10 @@
   boot.kernelParams = [ 
     "quiet"
     "splash"
+    "loglevel=3"
+    "systemd.show_status=audo"
+    "rd.udev.log_level=3"
+
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -30,7 +34,7 @@
 
   boot.plymouth = {
     enable = true;
-    theme = "bgrt";
+    theme = "spinner";
   };
 
   # Zram settings

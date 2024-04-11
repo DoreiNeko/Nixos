@@ -65,7 +65,7 @@
         "paperwm@paperwm.github.com"
         "blur-my-shell@aunetx"
         "dash-to-panel@jderose9.github.com"
-        "sound-output-device-chooser@kgshank.net"
+        "caffeine@patapon.info"
       ];
     };
 
@@ -109,7 +109,6 @@
     gnomeExtensions.appindicator
     gnomeExtensions.paperwm
     gnomeExtensions.dash-to-panel
-    gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.caffeine
     (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
   ];
