@@ -28,6 +28,8 @@
         neovim
         vesktop
         spotify
+        ripgrep
+        zig
       ];
     };
     programs.steam = {

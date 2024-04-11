@@ -17,5 +17,6 @@
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
   ];
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
   xdg.portal.enable = true;
 }

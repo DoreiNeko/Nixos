@@ -60,13 +60,5 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-  home-manager = {
-    # also pass inputs to home-manager modules
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "dorei" = import ./home.nix;
-    };
-  };
-
   system.stateVersion = "24.05"; # Did you read the comment?
 }
