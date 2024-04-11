@@ -30,6 +30,11 @@
         spotify
         ripgrep
         zig
+        rustup
+        transmission-gtk
+        obs-studio
+        krita
+        blender
       ];
     };
     programs.steam = {

@@ -110,6 +110,7 @@
     gnomeExtensions.paperwm
     gnomeExtensions.dash-to-panel
     gnomeExtensions.sound-output-device-chooser
+    gnomeExtensions.caffeine
     (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
   ];
 
