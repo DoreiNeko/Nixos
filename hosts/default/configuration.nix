@@ -10,7 +10,6 @@
       ../../modules/nixos/amd-drivers.nix
       ../../modules/nixos/pipewire.nix
       ../../modules/nixos/ollama.nix
-      inputs.home-manager.nixosModules.default
     ];
 
   main-user.enable = true;
@@ -26,9 +25,20 @@
     "splash"
     ];
 
-  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.plymouth = {
+    enable = true;
+    theme = "bgrt";
+  };
+
+  # Zram settings
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 50;
+  };
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
