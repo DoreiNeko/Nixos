@@ -15,7 +15,7 @@
       package = pkgs.catppuccin-gtk.override {
         accents = [ "sky" ];
         size = "compact";
-        tweaks = [ "rimless" "black" ];
+        tweaks = [ "rimless" ];
         variant = "mocha";
       };
     };
@@ -61,12 +61,17 @@
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "appindicatorsupport@rgcjonas.gmail.com"
         "color-picker@tuberry"
-        "zen@le0.gs"
         "paperwm@paperwm.github.com"
         "blur-my-shell@aunetx"
         "dash-to-panel@jderose9.github.com"
         "caffeine@patapon.info"
+        "gsconnect@andyholmes.github.io"
       ];
+    };
+
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "'close,minimize,maximize:icon'";
+      resize-with-right-button = true;
     };
 
     # Set shell theme
@@ -97,19 +102,25 @@
       # Behavior
       isolate-workspaces = true;
     };
+
+    # Libvirt stuff
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
+    };
   };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
     gnomeExtensions.user-themes
-    gnomeExtensions.zen
     gnomeExtensions.blur-my-shell
     gnomeExtensions.color-picker
     gnomeExtensions.appindicator
     gnomeExtensions.paperwm
     gnomeExtensions.dash-to-panel
     gnomeExtensions.caffeine
+    gnomeExtensions.gsconnect
     (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
   ];
 

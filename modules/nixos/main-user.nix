@@ -16,7 +16,7 @@
   config = lib.mkIf config.main-user.enable {
     users.users.${config.main-user.userName} = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "render" "video" ];
+      extraGroups = [ "wheel" "render" "video" "libvirt" ];
       packages = with pkgs; [
         protonvpn-gui
         firefox
@@ -37,8 +37,19 @@
         blender
       ];
     };
-    programs.steam = {
+    programs.gamemode = {
       enable = true;
+      settings = {
+        general = {
+          renice = 10;
+        };
+
+        custom = {
+          start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+          end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+        };
+      };
     };
+    programs.kdeconnect.enable = true;
   };
 }

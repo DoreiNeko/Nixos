@@ -26,15 +26,15 @@
     "loglevel=3"
     "systemd.show_status=audo"
     "rd.udev.log_level=3"
-
     ];
 
+  boot.initrd.systemd.enable = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.plymouth = {
     enable = true;
-    theme = "spinner";
+    theme = "bgrt";
   };
 
   # Zram settings
@@ -67,8 +67,14 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Power management
+  services.power-profiles-daemon.enable = true;
+
   # flatpak
   services.flatpak.enable = true;
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   # Shell
   programs.zsh.enable = true;
